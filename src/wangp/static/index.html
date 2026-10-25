@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>wangp</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="brand">wangp</div>
+    <p class="tag">Headless WanGP. Scripts, settings, instructor. No notebook.</p>
+    <div id="health" class="health">checking instructor...</div>
+  </header>
+
+  <main class="layout">
+    <section class="panel">
+      <h2>Instructor</h2>
+      <label>Brief
+        <textarea id="brief" rows="5" placeholder="A 3-shot night street scene: a fox appears, looks at a neon sign, then walks into the rain."></textarea>
+      </label>
+      <label>Notes (optional)
+        <input id="notes" type="text" placeholder="Keep shots under 5s. 832x480. Distilled model." />
+      </label>
+      <div class="row">
+        <button id="btn-instruct" type="button">Draft script</button>
+        <button id="btn-revise" type="button" class="ghost">Revise current</button>
+      </div>
+      <p id="instruct-status" class="status"></p>
+    </section>
+
+    <section class="panel">
+      <h2>Script</h2>
+      <textarea id="script" rows="18" placeholder="# Title
+
+model_type: t2v
+resolution: 832x480
+video_length: 5s
+num_inference_steps: 8
+
+## Shot 1: Open
+Wide night street, rain, neon. A fox steps into frame.
+
+## Shot 2: Look
+continue: previous
+The fox looks up at a flickering sign.
+
+## Shot 3: Leave
+continue: previous
+The fox walks into the rain and out of light."></textarea>
+      <div class="row">
+        <button id="btn-parse" type="button" class="ghost">Parse / preview</button>
+        <button id="btn-dry" type="button" class="ghost">Dry run</button>
+        <button id="btn-run" type="button">Run pipeline</button>
+      </div>
+      <p id="script-status" class="status"></p>
+    </section>
+
+    <section class="panel">
+      <h2>Shots</h2>
+      <div id="shots" class="shots empty">Parse a script to see shots and settings.</div>
+    </section>
+
+    <section class="panel">
+      <h2>Settings</h2>
+      <div id="fields" class="fields"></div>
+    </section>
+
+    <section class="panel span">
+      <h2>Jobs</h2>
+      <div id="jobs" class="jobs empty">No jobs yet.</div>
+    </section>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>

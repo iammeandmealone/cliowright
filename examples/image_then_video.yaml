@@ -1,0 +1,21 @@
+name: image-then-video
+defaults:
+  seed: -1
+steps:
+  - id: keyframe
+    kind: generate
+    model: t2i
+    prompt: ${params.prompt}
+    settings:
+      resolution: 1024x1024
+      num_inference_steps: 8
+  - id: motion
+    kind: generate
+    model: i2v
+    prompt: ${params.motion}
+    settings:
+      image_start: ${steps.keyframe.files.0}
+      image_prompt_type: S
+      resolution: 832x480
+      video_length: 5s
+      num_inference_steps: 8

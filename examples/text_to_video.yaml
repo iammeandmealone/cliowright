@@ -1,0 +1,12 @@
+name: text-to-video
+defaults:
+  resolution: 832x480
+  num_inference_steps: 8
+  video_length: 5s
+steps:
+  - id: clip
+    kind: generate
+    model: t2v
+    prompt: ${params.prompt}
+    settings:
+      seed: -1

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://wangp.dev/config.json",
+  "root": "",
+  "output_dir": "outputs",
+  "profile": 4,
+  "attention": "sdpa",
+  "offline": false,
+  "cli_args": [],
+  "defaults": {
+    "model": "",
+    "resolution": "832x480",
+    "steps": 8,
+    "video_length": "5s",
+    "seed": -1
+  }
+}
